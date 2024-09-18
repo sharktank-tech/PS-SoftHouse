@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Site Pessoal</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="contact.css">
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "Mo_GaOReI_lNZp2gf", // Substitua pela sua chave pública
+          });
+       })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="about.html">Sobre Nós</a></li>
+                <li><a href="projects.html">Projetos</a></li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="contact">
+        <div class="content-box">
+            <h2>Contato</h2>
+            <form id="contact-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" id="submit-btn">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PS SoftHouse. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para enviar email usando EmailJS
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio normal do formulário
+
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true; // Desabilita o botão de envio
+            submitBtn.textContent = "Enviando..."; // Altera o texto do botão
+
+            // Coleta os dados do formulário
+            const templateParams = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+            };
+
+            // Envia o email usando o EmailJS
+            emailjs.send('service_ejjsjnf', 'template_m132fep', templateParams)
+                .then(function(response) {
+                    console.log('Email enviado com sucesso!', response.status, response.text);
+                    alert('Email enviado com sucesso!');
+                    submitBtn.textContent = "Enviar"; // Restaura o texto do botão
+                    submitBtn.disabled = false; // Habilita o botão novamente
+                }, function(error) {
+                    console.log('Erro ao enviar email...', error);
+                    alert('Erro ao enviar email. Por favor, tente novamente.');
+                    submitBtn.textContent = "Enviar"; // Restaura o texto do botão
+                    submitBtn.disabled = false; // Habilita o botão novamente
+                });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const contentBox = document.querySelector('.content-box');
+            const { clientX: x, clientY: y } = e;
+            const { left, top, width, height } = contentBox.getBoundingClientRect();
+            const centerX = left + width / 2;
+            const centerY = top + height / 2;
+            const deltaX = x - centerX;
+            const deltaY = y - centerY;
+
+            const rotateX = (deltaY / height) * 10;
+            const rotateY = (deltaX / width) * -10;
+
+            contentBox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

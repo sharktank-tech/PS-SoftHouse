@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('imagem2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; /* Adiciona perspectiva para o efeito 3D */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; /* Adiciona perspectiva para o efeito 3D */
+}
+
+.form-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Adiciona transição de rotação */
+    transform-style: preserve-3d;
+}
+
+.form-container.hidden {
+    opacity: 3;
+    visibility: hidden;
+    transform: rotateY(-90deg); /* Gira a caixa para fora da vista */
+}
+
+.form-box {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 16px;
+    transition: border-color 0.4s ease;
+}
+
+input:focus {
+    border-color: #0593A2;
+    outline: none;
+}
+
+button {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #0593A2;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #037d8e;
+}
+
+p {
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+a {
+    color: #FF7A48;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,146 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #0593A2;
+}
+
+/* Parallax e overlay */
+.parallax {
+    background: url('gif1.gif') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.overlay h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.overlay p {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+}
+
+/* Estilos para o ícone de perfil */
+.profile-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Menu suspenso de perfil */
+.profile-menu {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 200px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1002;
+    display: none;
+}
+
+.profile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.profile-menu ul li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.profile-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.profile-menu ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.profile-menu ul li a:hover {
+    color: #0593A2;
+}
+
+/* Exibe o menu suspenso */
+.profile-menu.show {
+    display: block;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
